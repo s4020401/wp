@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">MyWebsite</div>
+            <div class="nav-container">
+                <select id="nav-select" onchange="navigate()">
+                    <option value="">Navigate</option>
+                    <option value="#home">Home</option>
+                    <option value="#about">About</option>
+                    <option value="#services">Services</option>
+                    <option value="#contact">Contact</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>Go</button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function navigate() {
+            var select = document.getElementById("nav-select");
+            var value = select.options[select.selectedIndex].value;
+            if (value) {
+                window.location.href = value;
+            }
+        }
+    </script>
+</body>
+</html>
