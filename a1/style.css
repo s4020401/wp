@@ -3,13 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-.logo-image {
-    height: 50px;
-    width: 50px;
-}
+
 body {
     font-family: Arial, sans-serif;
 }
+
 
 header {
     background-color: #333;
@@ -19,22 +17,30 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
+.about-logo-image {
+    height: 50px;
+    width: auto; 
+}
+
+
 .nav-container {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    margin-left: 20px; 
+    margin-right: auto;
 }
 
 #nav-select {
@@ -51,9 +57,11 @@ header {
     color: white;
 }
 
+
 .search-container {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .search-container input[type="text"] {
@@ -74,4 +82,31 @@ header {
 
 .search-container button:hover {
     background-color: #777;
+}
+
+
+.company{
+    height:650px;
+    width: 100%;
+    background-color:#FAF5EF;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.company-image:hover{
+    transform: translateY(-5px);
+    transition: transform 0.5s;
+}
+.company-image{
+    height: 500px;
+    width: 500px;
+    border-radius: 500px;
+    margin-left: 800px;
+}
+h1{
+    text-transform: uppercase;
+    font-size: 100px;
+    line-height: 32px;
+    text-align: 500px;
 }
