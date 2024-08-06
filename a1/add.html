@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pet Adoption</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img class="about-logo-image" alt="company logo" src="logo.png">
+            <div class="nav-container">
+                <select id="nav-select" onchange="navigate()">
+                    <option value="">Select an Option...</option>
+                    <option value="#home">Home</option>
+                    <option value="#about">About</option>
+                    <option value="#services">Services</option>
+                    <option value="#contact">Contact</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button>Go</button>
+            </div>
+        </div>
+    </header>
+<main>
+    <div class="add-info">
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname">
+          </form>
+    </div>
+    <div class="dropdown">
+        <div class="select">
+            <span class="selected">--Choose an option--</span>
+            <div class="cart"></div>
+        </div>
+        <ul class="menu">
+            <li>dog1</li>
+            <li>dog2</li>
+        </ul>
+    </div>
+</main>
+
+<footer class="footer-whole">
+    <div class="footer-container">
+        <p>&copy; 2024 Your Company. All rights reserved. | Designed for Pets Victoria</p>
+    </div>
+</footer>
+
+<script>
+    function navigate() {
+        var select = document.getElementById("nav-select");
+        var value = select.options[select.selectedIndex].value;
+        if (value) {
+            window.location.href = value;
+        }
+    }
+</script>
+</body>
