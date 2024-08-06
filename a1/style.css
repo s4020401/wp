@@ -1,3 +1,4 @@
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +7,12 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #FAF5EF; /* 背景色与参考图一致 */
 }
 
-
+/* Header 样式 */
 header {
-    background-color: #333;
+    background-color: #3A8378;
     color: white;
     padding: 20px 0;
 }
@@ -18,29 +20,20 @@ header {
 .header-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
 .about-logo-image {
     height: 50px;
-    width: auto; 
+    width: auto;
 }
 
-
 .nav-container {
-    display: flex;
-    align-items: center;
-    margin-left: 20px; 
     margin-right: auto;
+    margin-left: 20px;
 }
 
 #nav-select {
@@ -57,11 +50,9 @@ header {
     color: white;
 }
 
-
 .search-container {
     display: flex;
     align-items: center;
-    margin-right: 20px;
 }
 
 .search-container input[type="text"] {
@@ -84,29 +75,61 @@ header {
     background-color: #777;
 }
 
-
-.company{
-    height:650px;
-    width: 100%;
-    background-color:#FAF5EF;
-    background-size: cover;
-    background-position: center;
-    
+/* Main 样式 */
+.company {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #FAF5EF;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.company-image:hover{
-    transform: translateY(-5px);
+.text-container {
+    max-width: 50%;
+    margin-left: 100px;
+}
+
+h1 {
+    font-size: 4em;
+    color: #A96534;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+h2 {
+    font-size: 4em;
+    color: #436675;
+    margin-top: 10px;
+}
+
+.company-image-container {
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.company-image {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
     transition: transform 0.5s;
 }
-.company-image{
-    height: 500px;
-    width: 500px;
-    border-radius: 500px;
-    margin-left: 800px;
+
+.company-image:hover {
+    transform: translateY(-5px);
 }
-h1{
-    text-transform: uppercase;
-    font-size: 100px;
-    line-height: 32px;
-    text-align: 500px;
+
+/* Footer 样式 */
+footer {
+    background-color: #C4814B;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 50px;
+    padding: 0 20px;
 }
