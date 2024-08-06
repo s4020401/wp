@@ -133,3 +133,33 @@ footer {
     margin: 50px;
     padding: 0 20px;
 }
+.add-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #FAF5EF;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dropdown{
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+.dropdown * {
+    box-sizing: border-box;
+}
+.select{
+    background: #C4814B;
+color: #fff;
+display:flex ;
+justify-content: space-between;
+align-items: center;
+border: 2px #C4814B solid;
+border-radius: 0.5em;
+padding: 1em;
+cursor: pointer;
+transition: bacground 0.3s;
+}
