@@ -27,25 +27,48 @@
         </div>
     </header>
 <main>
-    <div class="add-info">
-        <form>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname">
-          </form>
-    </div>
-    <div class="dropdown">
-        <div class="select">
-            <span class="selected">--Choose an option--</span>
-            <div class="cart"></div>
+        <div class="add-pet-container">
+            <h1>Add a Pet</h1>
+            <form id="add-pet-form" enctype="multipart/form-data">
+                <label for="pet-name">Pet Name:</label>
+                <input type="text" id="pet-name" name="pet-name" required>
+
+                <label for="pet-type">Type:</label>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">--Choose an option--</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li data-value="dog">Dog</li>
+                        <li data-value="cat">Cat</li>
+                        <li data-value="bird">Bird</li>
+                        <li data-value="other">Other</li>
+                    </ul>
+                    <input type="hidden" id="pet-type" name="pet-type" required>
+                </div>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="pet-image">Select an Image:</label>
+                <input type="file" id="pet-image" name="pet-image" accept="image/*" required>
+                <small>Max image size: 500px</small>
+
+                <label for="image-caption">Image Caption:</label>
+                <input type="text" id="image-caption" name="image-caption" required>
+
+                <label for="age">Age (months):</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </form>
         </div>
-        <ul class="menu">
-            <li>dog1</li>
-            <li>dog2</li>
-        </ul>
-    </div>
-</main>
+    </main>
 
 <footer class="footer-whole">
     <div class="footer-container">
@@ -61,5 +84,5 @@
             window.location.href = value;
         }
     }
-</script>
+ <script src="main.js"></script>
 </body>
