@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pet Adoption</title>
+    <title>Add a Pet</title>
 </head>
 <body>
     <header>
@@ -26,7 +26,8 @@
             </div>
         </div>
     </header>
-<main>
+
+    <main>
         <div class="add-pet-container">
             <h1>Add a Pet</h1>
             <form id="add-pet-form" enctype="multipart/form-data">
@@ -70,19 +71,12 @@
         </div>
     </main>
 
-<footer class="footer-whole">
-    <div class="footer-container">
-        <p>&copy; 2024 Your Company. All rights reserved. | Designed for Pets Victoria</p>
-    </div>
-</footer>
+    <footer class="footer-whole">
+        <div class="footer-container">
+            <p>&copy; 2024 Your Company. All rights reserved. | Designed for Pets Victoria</p>
+        </div>
+    </footer>
 
-<script>
-    function navigate() {
-        var select = document.getElementById("nav-select");
-        var value = select.options[select.selectedIndex].value;
-        if (value) {
-            window.location.href = value;
-        }
-    }
- <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
+</html>
