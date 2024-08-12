@@ -7,7 +7,11 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #FAF5EF; /* 背景色 */
+    background-color: white; /* 背景色 */
+}
+.index{
+    font-family: Arial, sans-serif;
+    background-color: #fcf9ec   ;
 }
 
 /* Header 样式 */
@@ -81,7 +85,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 50px 0;
-    background-color: #FAF5EF;
+    background-color: #fcf9ec ;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -121,17 +125,17 @@ h2 {
 }
 
 .add-pet-container {
-    background-color: #FAF5EF;
+    background-color: white;
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px grey;
 }
 
 .add-pet-container h1 {
     text-align: center;
-    color: #A96534;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -179,8 +183,8 @@ h2 {
 }
 
 .dropdown .select {
-    background-color: #C4814B;
-    color: #fff;
+    background-color: transparent;
+    color: black;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
