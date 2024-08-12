@@ -16,7 +16,7 @@
                     <option value="index.html">Home</option>
                     <option value="about.html">About</option>
                     <option value="services.html">Services</option>
-                    <option value="contact.html">Contact</option>
+                    <option value="pets.html">pets</option>
                     <option value="add.html">Add</option>
                 </select>
             </div>
@@ -29,44 +29,40 @@
 
     <main>
         <div class="add-pet-container">
-            <h1>Add a Pet</h1>
-            <form id="add-pet-form" enctype="multipart/form-data">
-                <label for="pet-name">Pet Name:</label>
-                <input type="text" id="pet-name" name="pet-name" required>
-
-                <label for="pet-type">Type:</label>
-                <div class="dropdown">
-                    <div class="select">
-                        <span class="selected">--Choose an option--</span>
-                        <div class="caret"></div>
-                    </div>
-                    <ul class="menu">
-                        <li data-value="dog">Dog</li>
-                        <li data-value="cat">Cat</li>
-                        <li data-value="bird">Bird</li>
-                        <li data-value="other">Other</li>
-                    </ul>
-                    <input type="hidden" id="pet-type" name="pet-type" required>
-                </div>
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
-
-                <label for="pet-image">Select an Image:</label>
-                <input type="file" id="pet-image" name="pet-image" accept="image/*" required>
+            <h1>Add a pet</h1>
+            <p>You can add a new pet here</p>
+            <form>
+                <label for="pet-name">Pet Name *</label>
+                <input type="text" id="pet-name" name="pet-name" placeholder="Provide a name for the pet" required>
+        
+                <label for="pet-type">Type *</label>
+                <select id="pet-type" name="pet-type" required>
+                    <option value="" disabled selected>--Choose an option--</option>
+                    <option value="cat">Cat</option>
+                    <option value="dog">Dog</option>
+                    <!-- Add more options as needed -->
+                </select>
+        
+                <label for="description">Description *</label>
+                <textarea id="description" name="description" placeholder="Describe the pet briefly" required></textarea>
+        
+                <label for="image">Select an Image: *</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
                 <small>Max image size: 500px</small>
-
-                <label for="image-caption">Image Caption:</label>
-                <input type="text" id="image-caption" name="image-caption" required>
-
-                <label for="age">Age (months):</label>
-                <input type="number" id="age" name="age" required>
-
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
-
-                <button type="submit">Submit</button>
-                <button type="reset">Clear</button>
+        
+                <label for="image-caption">Image Caption: *</label>
+                <input type="text" id="image-caption" name="image-caption" placeholder="Describe the image in one word" required>
+        
+                <label for="age">Age (months): *</label>
+                <input type="number" id="age" name="age" placeholder="Age of a pet in months" required>
+        
+                <label for="location">Location: *</label>
+                <input type="text" id="location" name="location" placeholder="Location of the pet" required>
+        
+                <div class="form-buttons">
+                    <button type="submit">submit</button>
+                    <button type="reset">clear</button>
+                </div>
             </form>
         </div>
     </main>
@@ -80,3 +76,4 @@
     <script src="main.js"></script>
 </body>
 </html>
+
