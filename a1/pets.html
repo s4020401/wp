@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Victoria</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the existing CSS -->
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img class="about-logo-image" alt="company logo" src="logo.png">
+            <div class="nav-container">
+                <select id="nav-select">
+                    <option value="">Select an Option...</option>
+                    <option value="index.html">Home</option>
+                    <option value="about.html">About</option>
+                    <option value="services.html">Services</option>
+                    <option value="contact.html">Contact</option>
+                    <option value="add.html">Add</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button>Go</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="pet-info-container">
+            <h1>Discover Pets Victoria</h1>
+            <p>Pets Victoria is a dedicated pet adoption organization based in Victoria, Australia, focused on providing a safe and loving environment for pets in need. With a compassionate approach, Pets Victoria works tirelessly to rescue, rehabilitate, and rehome dogs, cats, and other animals. Their mission is to connect these deserving pets with caring individuals and families, creating lifelong bonds. The organization offers a range of services, including adoption counseling, pet education, and community support programs, all aimed at promoting responsible pet ownership and reducing the number of homeless animals.</p>
+        </div>
+
+        <div class="pet-display-container">
+            <div class="pet-image-container">
+                <img src="catdog.jpeg" alt="Running dogs and cats" class="pet-image">
+            </div>
+
+            <div class="pet-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pet</th>
+                            <th>Type</th>
+                            <th>Age</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Milo</td>
+                            <td>Cat</td>
+                            <td>3 months</td>
+                            <td>Melbourne CBD</td>
+                        </tr>
+                        <tr>
+                            <td>Baxter</td>
+                            <td>Dog</td>
+                            <td>5 months</td>
+                            <td>Cape Woolamai</td>
+                        </tr>
+                        <tr>
+                            <td>Luna</td>
+                            <td>Cat</td>
+                            <td>1 month</td>
+                            <td>Ferntree Gully</td>
+                        </tr>
+                        <tr>
+                            <td>Willow</td>
+                            <td>Dog</td>
+                            <td>48 months</td>
+                            <td>Marysville</td>
+                        </tr>
+                        <tr>
+                            <td>Oliver</td>
+                            <td>Cat</td>
+                            <td>12 month</td>
+                            <td>Grampians</td>
+                        </tr>
+                        <tr>
+                            <td>Bella</td>
+                            <td>Dog</td>
+                            <td>10 months</td>
+                            <td>Carlton</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+       
+            let pets = JSON.parse(localStorage.getItem("pets")) || [];
+        
+            
+            let tableBody = document.querySelector("table tbody");
+        
+           
+            pets.forEach(pet => {
+                let row = document.createElement("tr");
+        
+                let nameCell = document.createElement("td");
+                nameCell.textContent = pet.name;
+                row.appendChild(nameCell);
+        
+                let typeCell = document.createElement("td");
+                typeCell.textContent = pet.type;
+                row.appendChild(typeCell);
+                
+                let ageMonthsCell = document.createElement("td");
+                ageMonthsCell.textContent = pet.ageMonths;
+                row.appendChild(ageMonthsCell);
+        
+                let locationCell = document.createElement("td");
+                locationCell.textContent = pet.location;
+                row.appendChild(locationCell);
+        
+                tableBody.appendChild(row);
+            });
+        });
+        </script>
+        
+
+    <footer class="footer-whole">
+        <div class="footer-container">
+            <p>&copy; Copyright 5123456. All Rights Reserved | Designed for Pets Victoria</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- Retain previous JavaScript -->
+</body>
+</html>
