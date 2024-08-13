@@ -66,6 +66,41 @@
             </form>
         </div>
     </main>
+    <script >
+        document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // 阻止表单提交的默认行为
+
+    // 获取表单中的数据
+    let petName = document.querySelector('input[name="pet-name"]').value;
+    let petType = document.querySelector('select[name="pet-type"]').value;
+    let description = document.querySelector('textarea[name="description"]').value;
+    let imageCaption = document.querySelector('input[name="image-caption"]').value;
+    let ageMonths = document.querySelector('input[name="age"]').value;
+    let location = document.querySelector('input[name="location"]').value;
+
+    // 创建一个宠物对象
+    let pet = {
+        name: petName,
+        type: petType,
+        ageMonths: ageMonths,
+        location: location
+    };
+
+    // 获取已存储的宠物列表
+    let pets = JSON.parse(localStorage.getItem("pets")) || [];
+
+    // 将新宠物添加到列表中 
+    pets.push(pet);
+
+    // 将更新后的宠物列表存储在 localStorage
+    localStorage.setItem("pets", JSON.stringify(pets));
+
+    // 清空表单
+    document.querySelector("form").reset();
+
+    alert("Pet added successfully!");
+});
+        </script>
 
     <footer class="footer-whole">
         <div class="footer-container">
@@ -76,4 +111,5 @@
     <script src="main.js"></script>
 </body>
 </html>
+
 
