@@ -6,22 +6,21 @@
     <title>Pets Victoria</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to the existing CSS -->
 </head>
-<body>
+<body class="index">
     <header>
         <div class="header-container">
             <img class="about-logo-image" alt="company logo" src="logo.png">
             <div class="nav-container">
                 <select id="nav-select">
-                    <option value="">Select an Option...</option>
+                    <option value="">Navigate</option>
                     <option value="index.html">Home</option>
-                    <option value="about.html">About</option>
-                    <option value="services.html">Services</option>
-                    <option value="contact.html">Contact</option>
+                    <option value="gallery.html">gallery</option>
+                    <option value="pets.html">pets</option>
                     <option value="add.html">Add</option>
                 </select>
             </div>
             <div class="search-container">
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search...">
                 <button>Go</button>
             </div>
         </div>
@@ -30,12 +29,12 @@
     <main>
         <div class="pet-info-container">
             <h1>Discover Pets Victoria</h1>
-            <p>Pets Victoria is a dedicated pet adoption organization based in Victoria, Australia, focused on providing a safe and loving environment for pets in need. With a compassionate approach, Pets Victoria works tirelessly to rescue, rehabilitate, and rehome dogs, cats, and other animals. Their mission is to connect these deserving pets with caring individuals and families, creating lifelong bonds. The organization offers a range of services, including adoption counseling, pet education, and community support programs, all aimed at promoting responsible pet ownership and reducing the number of homeless animals.</p>
+            <p>PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. WITH A COMPASSIONATE APPROACH, PETS VICTORIA WORKS TIRELESSLY TO RESCUE, REHABILITATE, AND REHOME DOGS, CATS, AND OTHER ANIMALS. THEIR MISSION IS TO CONNECT THESE DESERVING PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS. THE ORGANIZATION OFFERS A RANGE OF SERVICES, INCLUDING ADOPTION COUNSELING, PETEDUCATION, AND COMMUNITY SUPPORT PROGRAMS, ALL AIMED AT PROMOTING RESPONSIBLE PET OWNERSHIP AND REDUCING THE NUMBER OF HOMELESS ANIMALS.</p>
         </div>
 
         <div class="pet-display-container">
             <div class="pet-image-container">
-                <img src="catdog.jpeg" alt="Running dogs and cats" class="pet-image">
+                <img src="pets.jpeg" alt="Running dogs and cats" class="pet-image">
             </div>
 
             <div class="pet-table-container">
@@ -92,13 +91,13 @@
     </main>
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
-       
+            // 从 localStorage 获取宠物数据
             let pets = JSON.parse(localStorage.getItem("pets")) || [];
         
-            
+            // 获取表格的 tbody 元素
             let tableBody = document.querySelector("table tbody");
         
-           
+            // 遍历宠物列表并生成表格行
             pets.forEach(pet => {
                 let row = document.createElement("tr");
         
@@ -130,6 +129,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script> <!-- Retain previous JavaScript -->
+    <script src="main.js"></script>
 </body>
 </html>
