@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css folder/style.css">
     <title>Add a Pet</title>
 </head>
 <body class="index">
     <header>
         <div class="header-container">
-            <img class="about-logo-image" alt="company logo" src="logo.png">
+            <img class="about-logo-image" alt="company logo" src="images folder/logo.png">
             <div class="nav-container">
                 <select id="nav-select">
+                    <option value="">Select an options...</option>
                     <option value="index.html">Home</option>
                     <option value="gallery.html">gallery</option>
                     <option value="pets.html">pets</option>
@@ -20,11 +21,12 @@
             </div>
             <div class="search-container">
                 <input type="text" placeholder="Search...">
-                <button>Go</button>
+                <button>
+                    <img src="images folder/search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Search">
+                </button>
             </div>
         </div>
     </header>
-
     <main>
         <div class="add-pet-container">
             <h1>Add a pet</h1>
@@ -53,15 +55,14 @@
         
                 <label for="age">Age (months): *</label>
                 <input type="number" id="age" name="age" placeholder="Age of a pet in months" required>
-        
                 <label for="location">Location: *</label>
                 <input type="text" id="location" name="location" placeholder="Location of the pet" required>
                 <div class="form-buttons">
                     <button type="submit" class="styled-button">
-                        <img src="add_task_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Submit Icon"> submit
+                        <img src="images folder/add_task_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Submit Icon"> submit
                     </button>
                     <button type="reset" class="styled-button outlined-button">
-                        <img src="close_small_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Clear Icon"> clear
+                        <img src="images folder/close_small_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Clear Icon"> clear
                     </button>
                 </div>
                 
@@ -100,14 +101,18 @@
 });
         </script>
 
-    <footer class="footer-whole">
-        <div class="footer-container">
-            <p>&copy; 2024 Your Company. All rights reserved. | Designed for Pets Victoria</p>
-        </div>
-    </footer>
-    <script src="main.js"></script>
+    
+<footer class="footer-whole">
+    <div class="footer-container">
+        <p>&copy; zekun liu s4020401 All rights reserved. | Designed for Pets Victoria</p>
+    </div>
+</footer>
+   
+<script src="js folder/main.js"></script>
 </body>
 </html>
+
+
 
 
 
