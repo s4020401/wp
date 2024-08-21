@@ -6,7 +6,7 @@
     <title>Pets Victoria</title>
     <link rel="stylesheet" href="css folder/style.css">
 </head>
-<body class="index">
+<body>
     <header>
         <div class="header-container">
             <img class="about-logo-image" alt="company logo" src="images folder/logo.png">
@@ -93,13 +93,13 @@
     </main>
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
-            // 从 localStorage 获取宠物数据
+            
             let pets = JSON.parse(localStorage.getItem("pets")) || [];
         
-            // 获取表格的 tbody 元素
+          
             let tableBody = document.querySelector("table tbody");
         
-            // 遍历宠物列表并生成表格行
+           
             pets.forEach(pet => {
                 let row = document.createElement("tr");
         
