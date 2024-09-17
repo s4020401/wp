@@ -16,4 +16,5 @@ include('includes/nav.inc');
 </main>
 
 <?php
+include('includes/footer.inc');
 ?>
