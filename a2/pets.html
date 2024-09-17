@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Victoria</title>
+    <link rel="stylesheet" href="css folder/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img class="about-logo-image" alt="company logo" src="images folder/logo.png">
+            <div class="nav-container">
+                <select id="nav-select">
+                    <option value="">Select an options...</option>
+                    <option value="index.html">Home</option>
+                    <option value="gallery.html">gallery</option>
+                    <option value="pets.html">pets</option>
+                    <option value="add.html">Add</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>
+                    <img src="images folder/search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Search">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="pet-info-container">
+            <h1>Discover Pets Victoria</h1>
+            <p>PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. WITH A COMPASSIONATE APPROACH, PETS VICTORIA WORKS TIRELESSLY TO RESCUE, REHABILITATE, AND REHOME DOGS, CATS, AND OTHER ANIMALS. THEIR MISSION IS TO CONNECT THESE DESERVING PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS. THE ORGANIZATION OFFERS A RANGE OF SERVICES, INCLUDING ADOPTION COUNSELING, PETEDUCATION, AND COMMUNITY SUPPORT PROGRAMS, ALL AIMED AT PROMOTING RESPONSIBLE PET OWNERSHIP AND REDUCING THE NUMBER OF HOMELESS ANIMALS.</p>
+        </div>
+
+        <div class="pet-display-container">
+            <div class="pet-image-container">
+                <img src="images folder/pets.jpeg" alt="Running dogs and cats" class="pet-image">
+            </div>
+
+            <div class="pet-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pet</th>
+                            <th>Type</th>
+                            <th>Age</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Milo</td>
+                            <td>Cat</td>
+                            <td>3 months</td>
+                            <td>Melbourne CBD</td>
+                        </tr>
+                        <tr>
+                            <td>Baxter</td>
+                            <td>Dog</td>
+                            <td>5 months</td>
+                            <td>Cape Woolamai</td>
+                        </tr>
+                        <tr>
+                            <td>Luna</td>
+                            <td>Cat</td>
+                            <td>1 month</td>
+                            <td>Ferntree Gully</td>
+                        </tr>
+                        <tr>
+                            <td>Willow</td>
+                            <td>Dog</td>
+                            <td>48 months</td>
+                            <td>Marysville</td>
+                        </tr>
+                        <tr>
+                            <td>Oliver</td>
+                            <td>Cat</td>
+                            <td>12 month</td>
+                            <td>Grampians</td>
+                        </tr>
+                        <tr>
+                            <td>Bella</td>
+                            <td>Dog</td>
+                            <td>10 months</td>
+                            <td>Carlton</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            
+            let pets = JSON.parse(localStorage.getItem("pets")) || [];
+        
+          
+            let tableBody = document.querySelector("table tbody");
+        
+           
+            pets.forEach(pet => {
+                let row = document.createElement("tr");
+        
+                let nameCell = document.createElement("td");
+                nameCell.textContent = pet.name;
+                row.appendChild(nameCell);
+        
+                let typeCell = document.createElement("td");
+                typeCell.textContent = pet.type;
+                row.appendChild(typeCell);
+                
+                let ageMonthsCell = document.createElement("td");
+                ageMonthsCell.textContent = pet.ageMonths;
+                row.appendChild(ageMonthsCell);
+        
+                let locationCell = document.createElement("td");
+                locationCell.textContent = pet.location;
+                row.appendChild(locationCell);
+        
+                tableBody.appendChild(row);
+            });
+        });
+        </script>
+        
+
+        <footer class="footer-whole">
+            <div class="footer-container">
+                <p>&copy; zekun liu s4020401 All rights reserved. | Designed for Pets Victoria</p>
+            </div>
+        </footer>
+
+    <script src="js folder/main.js"></script>
+</body>
+</html>
