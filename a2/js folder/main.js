@@ -1,7 +1,7 @@
 document.getElementById('nav-select').addEventListener('change', function() {
     var value = this.value;
     if (value) {
-        window.location.href = value;
+        window.location.href = value;  // 将页面跳转到选择的 PHP 文件
     }
 });
 
@@ -69,4 +69,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         tableBody.appendChild(row);
     });
 });
+
+
 
