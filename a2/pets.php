@@ -4,6 +4,7 @@ include('includes/header.inc');
 ?>
 
 <main>
+<link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
     <div class="pet-info-container">
         <h1>Discover Pets Victoria</h1>
         <p>PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. THEIR MISSION IS TO CONNECT PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS.</p>
@@ -53,4 +54,5 @@ include('includes/header.inc');
 
 include('includes/footer.inc');
 $conn->close();
+?>
 ?>
