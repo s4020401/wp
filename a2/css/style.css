@@ -1,24 +1,16 @@
-/* 全局样式 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: white; 
-    min-height: 100vh;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-html, body {
-    height: 100%; /* 确保 body 和 html 占据整个页面高度 */
-    margin: 0;
-}
-
-/* Header 样式 */
 header {
     background-color: #3A8378;
     color: white;
@@ -84,19 +76,13 @@ header {
     background-color: #777;
 }
 
-.search-container img {
-    width: 24px;
-    height: 24px;
-}
-
-/* 公司介绍区块 */
 .company {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 50px 0;
     background-color: #fcf9ec;
-    max-width: 1600px;
+    max-width: 1200px auto ;
     margin: 0 auto;
 }
 
@@ -106,16 +92,30 @@ header {
 
 h1 {
     font-size: 3em;
-    padding: 50px;
     color: black;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+p-text{
+    font-size: 1em;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 5.5em;
-    padding: 50px;
+    font-size: 5em;
+    padding: 30px;
     color: #436675;
-    margin-top: 10px;
+    text-align: left;
+}
+
+h3 {
+    font-size: 5em;
+    padding: 30px;
+    color: #C4814B;
+    text-align: left;
 }
 
 .company-image-container {
@@ -125,8 +125,8 @@ h2 {
 }
 
 .company-image {
-    height: 650px;
-    width: 650px;
+    height: 800px;
+    width: 800px;
     border-radius: 50%;
     transition: transform 0.5s;
 }
@@ -135,71 +135,71 @@ h2 {
     transform: translateY(-5px);
 }
 
-/* 表单样式 */
-.add-pet-container {
-    background-color: white;
-    max-width: 1900px;
-    margin: 50px 0;
-    padding: 20px;
-    border-radius: 5px;
+/* Pets List */
+.pet-info-container {
+    text-align: center;
+    max-width: 1200px;
+    margin: 50px auto;
 }
 
-.add-pet-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #436675;
+.pet-info-container p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
 }
 
-.add-pet-container input,
-.add-pet-container textarea,
-.add-pet-container select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.form-buttons {
+.pet-display-container {
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 30px auto;
 }
 
-.styled-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    background-color: #3b7360;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+.pet-image-container {
+    flex: 1;
+    margin-right: 20px;
 }
 
-.styled-button:hover {
-    background-color: #2c5d4d;
+.pet-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.outlined-button {
+.pet-table-container {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.pet-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pet-table-container th,
+.pet-table-container td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.pet-table-container th {
+    background-color: #fcf9ec;
+    color: #3A8378;
+}
+
+.pet-table-container td {
     background-color: white;
-    color: #3b7360;
-    border: 2px solid #3b7360;
+    color: #333;
 }
 
-.outlined-button:hover {
-    background-color: #f0f0f0;
+.pet-table-container tr:hover td {
+    background-color: #F1C197;
 }
 
-/* Gallery 样式 */
+/* Gallery Styling */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -259,25 +259,107 @@ h2 {
     opacity: 1;
 }
 
-/* Footer 样式 */
+/* Footer Styling */
 .site-footer {
     background-color: #C4814B;
     color: white;
-    padding: 50px 0;
+    padding: 40px;
     text-align: center;
-    border-radius: 8px;
-    width: 100%;
+    border-radius: 8px 8px 0 0;
     position: relative;
-    bottom: 0;   
+    bottom: 0;
+    width: 100%;
+    height: auto;
 }
-
 .footer-container {
     max-width: 1200px;
     margin: auto;
-    padding: 50px 20px;  /* 调整这里的 padding 让footer更宽 */
+    padding: 20px;
 }
 
-/* 保持 main 区域扩展以避免 footer 空白问题 */
 main {
     flex-grow: 1;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pet Detail Container */
+.pet-detail-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* Pet Image Styling */
+.pet-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pet-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pet Info Styling */
+.pet-info {
+    display: flex;
+    justify-content: center; /* Center the icons and texts */
+    align-items: center;
+    gap: 550px; /* Space between the icon sections */
+    margin: 20px 0;
+}
+
+.icon-detail {
+    display: flex;
+    flex-direction: column; /* Stack the image and text vertically */
+    align-items: center; /* Center align the text and image */
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.icon-small {
+    width: 40px;  /* Set a smaller size for the icons */
+    height: 40px;
+    margin-bottom: 20px; /* Add space between the icon and text */
+}
+
+/* Pet Name and Description Styling */
+h4 {
+    font-size: 2.5em;
+    color: #3A8378;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pet-description {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
