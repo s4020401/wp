@@ -1,20 +1,15 @@
-<?php
-include('includes/header.inc');
-include('includes/nav.inc');
-?>
-
+<?php include('includes/header.inc'); ?>
 <main>
+<link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
     <div class="company">
         <div class="text-container">
-            <h4>PETS VICTORIA</h4>
-            <h2>Welcome to Pet Adoption</h2>
+            <h3>PETS VICTORIA</h3>
+            <h2>WELCOME TO PET ADOPTION</h2>
         </div>
         <div class="company-image-container">
-            <img class="company-image" src="images/main.jpg" alt="Company Logo">
+            <img class="company-image" src="images/main.jpg" alt="Pets Image">
         </div>
     </div>
 </main>
 
-<?php
-include('includes/footer.inc');
-?>
+<?php include('includes/footer.inc'); ?>
