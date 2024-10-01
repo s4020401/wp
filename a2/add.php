@@ -1,34 +1,17 @@
+<?php
+include('includes/db_connect.inc');
+include('includes/header.inc');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Add a Pet</title>
 </head>
 <body class="index">
-    <header>
-        <div class="header-container">
-            <img class="about-logo-image" alt="company logo" src="images/logo.png">
-            <div class="nav-container">
-                <select id="nav-select">
-                    <option value="">Select an option...</option>
-                    <option value="index.html">Home</option>
-                    <option value="gallery.html">Gallery</option>
-                    <option value="pets.html">Pets</option>
-                    <option value="add.php">Add</option> 
-                </select>
-            </div>
-            <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>
-                    <img src="images/search.png" alt="Search"> 
-                </button>
-            </div>
-        </div>
-    </header>
-
     <main>
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
         <div class="add-pet-container">
             <h1>Add a pet</h1>
             <p>You can add a new pet here</p>
@@ -95,20 +78,15 @@
                         <img src="images/add_task_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Submit Icon"> submit
                     </button>
                     <button type="reset" class="styled-button outlined-button">
-                        <img src="images/close.png" alt="Clear Icon"> clear
+                        <img src="images/close_small_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Clear Icon"> clear
                     </button>
                 </div>
             </form>
         </div>
     </main>
 
-    <footer class="footer-whole">
-        <div class="footer-container">
-            <p>&copy; 2024 Pets Victoria</p>
-        </div>
-    </footer>
+    <?php include('includes/footer.inc'); ?>
    
     <script src="js/main.js"></script>
 </body>
 </html>
-
