@@ -429,11 +429,12 @@ h4 {
     text-align: right;
 }
 
-/* Form Buttons Styling */
 .form-buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;  
+    align-items: center;      
+    gap: 5px;                
+    margin-top: 20px;         
 }
 
 .styled-button {
@@ -456,11 +457,11 @@ h4 {
 }
 
 .clear-button {
-    background-color: #d9534f;
+    background-color: #2b615a;
 }
 
 .clear-button:hover {
-    background-color: #c9302c;
+    background-color: #2b615a;
 }
 
 .styled-button:hover {
