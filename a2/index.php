@@ -1,4 +1,5 @@
 <?php include('includes/header.inc'); ?>
+<?php include('includes/nav.inc'); ?>
 <main>
 <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
     <div class="company">
