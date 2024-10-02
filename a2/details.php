@@ -41,3 +41,4 @@ $pet = $result->fetch_assoc();
 
 <?php include('includes/footer.inc'); ?>
 <script src="js/main.js"></script>
+
