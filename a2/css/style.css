@@ -366,67 +366,103 @@ h4 {
 
 
 
-/* Pet Detail Container */
-.pet-detail-container {
-    max-width: 1200px;
+
+
+
+
+
+
+/* Form Container Styling */
+.add-pet-container {
+    max-width: auto;
     margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-pet-container h1 {
     text-align: center;
-}
-
-/* Pet Image Styling */
-.pet-image-wrapper {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.pet-image {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Pet Info Styling */
-.pet-info {
-    display: flex;
-    justify-content: center; /* Center the icons and texts */
-    align-items: center;
-    gap: 550px; /* Space between the icon sections */
-    margin: 20px 0;
-}
-
-.icon-detail {
-    display: flex;
-    flex-direction: column; /* Stack the image and text vertically */
-    align-items: center; /* Center align the text and image */
-    justify-content: center;
-    font-size: 1.2em;
-}
-
-.icon-small {
-    width: 40px;  /* Set a smaller size for the icons */
-    height: 40px;
-    margin-bottom: 20px; /* Add space between the icon and text */
-}
-
-/* Pet Name and Description Styling */
-h4 {
-    font-size: 2.5em;
-    color: #3A8378;
     margin-bottom: 20px;
-    text-align: center;
-}
-
-.pet-description {
-    font-size: 1.2em;
+    font-size: 2em;
     color: #333;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
+.add-pet-container p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
 
+.add-pet-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
 
+/* Ensure consistent width for all input, select, and textarea elements */
+.add-pet-container input[type="text"],
+.add-pet-container input[type="number"],
+.add-pet-container input[type="file"],
+.add-pet-container select,
+.add-pet-container textarea {
+    width: 100%; /* Make all inputs and selects 100% of the container width */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
 
+.add-pet-container input[type="file"] {
+    padding: 5px;
+}
 
+.add-pet-container small {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color: #999;
+    text-align: right;
+}
 
+/* Form Buttons Styling */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.styled-button {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #3A8378;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.styled-button img {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+}
+
+.clear-button {
+    background-color: #d9534f;
+}
+
+.clear-button:hover {
+    background-color: #c9302c;
+}
+
+.styled-button:hover {
+    background-color: #2b615a;
+}
