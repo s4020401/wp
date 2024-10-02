@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img src="images/add_task_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Submit Icon"> submit
                 </button>
                 <button type="reset" class="styled-button clear-button">
-                    <img src="images/close.png" alt="Clear Icon"> clear
+                    <img src="images/close_small_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Clear Icon"> clear
                 </button>
             </div>
         </form>
