@@ -11,9 +11,9 @@ $result = $conn->query($query);
 <main>
 <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
     <h1>Pets Victoria has a lot to offer!</h1>
-    <p class="p-text">
+    <p1>
         For almost two decades, Pets Victoria has helped in creating true social change by bringing pet adoption into the mainstream. Our work has helped make a difference to the Victorian rescue community and thousands of pets in need of rescue and rehabilitation. But, until every pet is safe, respected, and loved, we all still have big, hairy work to do.
-    </p>
+    </p1>
 
     <div class="gallery">
         <?php
@@ -45,3 +45,4 @@ include('includes/footer.inc');
 // 关闭数据库连接
 $conn->close();
 ?>
+
