@@ -1,10 +1,10 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: auto;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -93,13 +93,29 @@ header {
     align-items: center;
     padding: 50px 0;
     background-color: #fcf9ec;
-    max-width: 1200px auto ;
+    width: auto;
     margin: 0 auto;
 }
 
 .text-container {
     max-width: 50%;
 }
+
+.text-container h3 {
+    font-family: 'Rock Salt', cursive;  
+    font-size: 5em;
+    padding: 30px;
+    color: #C4814B;
+    text-align: left;
+}
+
+.text-container h2 {
+    font-size: 5em;
+    padding: 30px;
+    color: #436675;
+    text-align: left;
+}
+
 
 h1 {
     font-size: 3em;
@@ -115,20 +131,8 @@ p1{
     margin-bottom: 40px;
 }
 
-h2 {
-    font-size: 5em;
-    padding: 30px;
-    color: #436675;
-    text-align: left;
-}
 
-h3 {
-    font-family: 'Rock Salt', cursive;  
-    font-size: 5em;
-    padding: 30px;
-    color: #C4814B;
-    text-align: left;
-}
+
 
 .company-image-container {
     max-width: 50%;
@@ -386,7 +390,7 @@ h4 {
 
 /* Form Container Styling */
 .add-pet-container {
-    max-width: auto;
+    width: auto;
     margin: 50px auto;
     padding: 20px;
     background-color: white;
