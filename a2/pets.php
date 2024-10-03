@@ -12,7 +12,7 @@ include('includes/header.inc');
 
     <div class="pet-display-container">
         <div class="pet-image-container">
-            <img src="images/main.jpg" alt="Running dogs and cats" class="pet-image">
+            <img src="images/pets.jpeg" alt="Running dogs and cats" class="pet-image">
         </div>
 
         <div class="pet-table-container">
