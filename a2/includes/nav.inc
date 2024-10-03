@@ -1,8 +1,9 @@
 <nav>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="pets.php">Pets</a></li>
-        <li><a href="gallery.php">Gallery</a></li>
-        <li><a href="add.php">Add More</a></li>
-    </ul>
+    <select id="nav-select" onchange="handleNavSelection()">
+        <option value="">Select an Option...</option>
+        <option value="index.php">Home</option>
+        <option value="gallery.php">Gallery</option>
+        <option value="pets.php">Pets</option>
+        <option value="add.php">Add More</option>
+    </select>
 </nav>
