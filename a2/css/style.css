@@ -1,61 +1,4 @@
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    max-width: auto;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-header {
-    background-color: #3A8378;
-    color: white;
-    padding: 20px 0;
-    border-radius: 8px;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.about-logo-image {
-    height: 50px;
-    width: auto;
-}
-
-.nav-container {
-    margin-right: auto;
-    margin-left: 20px;
-}
-
-#nav-select {
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-
-#nav-select option {
-    background-color: #333;
-    color: white;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
 .search-container input[type="text"] {
     padding: 5px;
     border: none;
@@ -63,14 +6,26 @@ header {
 }
 
 .search-container button {
-    padding: 5px 10px;
+    padding: 3px 3px; /* 减少 padding 让按钮变小 */
     margin-left: 5px;
     border: none;
     border-radius: 3px;
     background-color: transparent;
     color: white;
     cursor: pointer;
+    font-size: 12px; /* 调整字体大小 */
+    width: 24px; /* 调整按钮宽度 */
+    height: 24px; /* 调整按钮高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.search-container button img {
+    width: 100%;  /* 设置图像宽度 */
+    height: 100%; /* 设置图像高度 */
+}
+
 
 .search-container button:hover {
     background-color: #777;
