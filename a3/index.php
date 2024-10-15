@@ -12,21 +12,31 @@ include('includes/header.inc');
         <div class="row">
             <!-- Image Carousel (using Bootstrap) -->
             <div class="col-md-6">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <?php
-                        // 查询最新的4个宠物信息
-                        $sql = "SELECT * FROM pets ORDER BY petid DESC LIMIT 4";
-                        $result = $conn->query($sql);
-                        $active = "active"; // 将第一项设为 active
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<div class="carousel-item ' . $active . '">';
-                            echo '<img src="images/' . $row['image'] . '" class="d-block w-100" alt="' . $row['petname'] . '">';
-                            echo '</div>';
-                            $active = ""; // 只有第一个项目有 active 类
-                        }
-                        ?>
+                <div id="carouselExampleControls" class="carousel slide mb-3" data-bs-ride="carousel"> 
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3"></button>
                     </div>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner bg-secondary">
+                        <div class="carousel-item active">
+                            <img src="images/dog3.jpeg alt="animal" class="d-block w-25 mx-auto">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/dog2.jpeg" alt="animal" class="d-block w-25 mx-auto">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/dog1.jpeg" alt="animal" class="d-block w-25 mx-auto">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/dog4.jpeg" alt="animal" class="d-block w-25 mx-auto">
+                        </div>
+                    </div>
+
                     <!-- Carousel Controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,7 +65,6 @@ include('includes/header.inc');
                 <option value="">Select your pet type</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
-                <!-- Add more options dynamically if needed -->
             </select>
             <button type="submit" class="search-button">Search</button>
         </form>
@@ -64,7 +73,7 @@ include('includes/header.inc');
     <!-- About Section -->
     <div class="about-section">
         <h3>Discover Pets Victoria</h3>
-        <p>PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. WITH A COMPASSIONATE APPROACH, PETS VICTORIA WORKS TIRELESSLY TO RESCUE, REHABILITATE, AND REHOME DOGS, CATS, AND OTHER ANIMALS. THEIR MISSION IS TO CONNECT THESE DESERVING PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS. THE ORGANIZATION OFFERS A RANGE OF SERVICES, INCLUDING ADOPTION COUNSELING, PET EDUCATION, AND COMMUNITY SUPPORT PROGRAMS, ALL AIMED AT PROMOTING RESPONSIBLE PET OWNERSHIP AND REDUCING THE NUMBER OF HOMELESS ANIMALS.</p>
+        <p>PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. WITH A COMPASSIONATE APPROACH, PETS VICTORIA WORKS TIRELESSLY TO RESCUE, REHABILITATE, AND REHOME DOGS, CATS, AND OTHER ANIMALS. THEIR MISSION IS TO CONNECT THESE DESERVING PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS.</p>
     </div>
 </main>
 
@@ -75,3 +84,22 @@ include('includes/footer.inc');
 
 <!-- Add Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Carousel JavaScript -->
+<script>
+    // Initialize Carousel manually
+    var myCarousel = document.querySelector('#carouselExampleControls');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: false, // Disable auto-sliding
+        wrap: true // Enable carousel wrapping
+    });
+
+    // Manual slide control
+    document.querySelector('.carousel-control-prev').addEventListener('click', function() {
+        carousel.prev();
+    });
+
+    document.querySelector('.carousel-control-next').addEventListener('click', function() {
+        carousel.next();
+    });
+</script>
