@@ -1,7 +1,18 @@
 <?php
+// Start session
+session_start();
+
+// Include database connection and header
 include('includes/db_connect.inc');
 include('includes/header.inc');
 
+// Ensure the user is logged in to add a pet
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Handle add pet form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $petname = $_POST['pet-name'];
     $description = $_POST['description'];
@@ -9,29 +20,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $age = $_POST['age'];
     $location = $_POST['location'];
     $imageCaption = $_POST['image-caption'];
-    $image = $_FILES['image']['name'];
-    
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO pets (petname, description, type, age, location, image, caption) 
-                VALUES ('$petname', '$description', '$type', '$age', '$location', '$image', '$imageCaption')";
+    $username = $_SESSION['username']; // Get the logged-in user's username
 
-        if ($conn->query($sql) === TRUE) {
-            echo "<p>New pet added successfully!</p>";
+    // Handle image upload
+    $target_dir = "images/";
+    $image_name = basename($_FILES["image"]["name"]);
+    $target_file = $target_dir . $image_name;
+
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        // Prepare the statement to insert new pet record into the database
+        $stmt = $conn->prepare("INSERT INTO pets (petname, description, type, age, location, image, caption, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssissss", $petname, $description, $type, $age, $location, $image_name, $imageCaption, $username);
+
+        if ($stmt->execute()) {
+            // Redirect to user page to view the added pet
+            $_SESSION['msg'] = "New pet added successfully!";
+            header("Location: user.php");
+            exit();
         } else {
-            echo "<p>Error: " . $conn->error . "</p>";
+            echo "<p class='error-message'>Error: " . $stmt->error . "</p>";
         }
+
+        $stmt->close();
     } else {
-        echo "<p>Error uploading image.</p>";
+        echo "<p class='error-message'>Error uploading image.</p>";
     }
 }
+
 ?>
 
 <main>
-<link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>"> 
     <div class="add-pet-container">
-        <h1>Add a pet</h1>
+        <h1>Add a Pet</h1>
         <p>You can add a new pet here</p>
 
         <form action="add.php" method="post" enctype="multipart/form-data">
