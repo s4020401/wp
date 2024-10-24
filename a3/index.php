@@ -8,7 +8,7 @@ include('includes/db_connect.inc');
 include('includes/header.inc');
 ?>
 
-<main>
+<main class="page">
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 
     <!-- Hero Section -->
@@ -57,7 +57,30 @@ include('includes/header.inc');
                 <h2 class="hero-subtitle">WELCOME TO PET ADOPTION</h2>
             </div>
         </div>
+         <!-- Search Section -->
+         <div class="row search-section mt-5">
+            <div class="col-md-8 offset-md-2 text-center">
+                <form action="search.php" method="get" class="search-form">
+                    <input type="text" name="keyword" class="form-control d-inline-block w-50" placeholder="I am looking for..." required>
+                    <select name="type" class="form-control d-inline-block w-25">
+                        <option value="">Select your pet type</option>
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="rabbit">Rabbit</option>
+                        <option value="bird">Bird</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+        <!-- Introduction Section -->
+        <div class="row mt-5">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h3>Discover Pets Victoria</h3>
+                <p>Pets Victoria is a dedicated pet adoption organization based in Victoria, Australia, focused on providing a safe and loving environment for pets in need. With a compassionate approach, Pets Victoria works tirelessly to help residents foster, care, and adopt animals. Their mission is to connect their residents with caring individuals and families, creating lifelong bonds. The organization offers a range of services, including adoption counseling, pet education, and community support programs, all aimed at promoting responsible pet ownership and reducing the number of homeless animals.</p>
+            </div>
     </div>
+
 </main>
 
 <?php
