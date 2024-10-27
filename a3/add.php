@@ -27,6 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $image_name = basename($_FILES["image"]["name"]);
     $target_file = $target_dir . $image_name;
 
+    // Check if the images/ directory exists, and create it if not
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755, true);
+    }
+
+    // Attempt to move the uploaded file to the images directory
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
         // Prepare the statement to insert new pet record into the database
         $stmt = $conn->prepare("INSERT INTO pets (petname, description, type, age, location, image, caption, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -43,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt->close();
     } else {
-        echo "<p class='error-message'>Error uploading image.</p>";
+        // Display an error message if the file upload fails
+        echo "<p class='error-message'>Error uploading image. Please check the images/ folder permissions.</p>";
     }
 }
-
 ?>
 
 <main>
