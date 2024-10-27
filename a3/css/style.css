@@ -10,14 +10,6 @@ body {
     box-sizing: border-box;
 }
 
-main {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 200px); /* 总高度减去头部和底部的高度 */
-}
-
 header {
     background-color: #3A8378;
     color: white;
