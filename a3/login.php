@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<main>
+<main class="login-page">
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 
     <div class="login-container">
