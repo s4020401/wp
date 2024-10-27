@@ -7,7 +7,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $database = "pets"; // 数据库名称为 "pets"
 } else {
     $host = "talsprddb02.int.its.rmit.edu.au";
-    $user = "s4020401";
+    $username = "s4020401";
     $password = "jackliu0165";
     $database = "s4020401";
 }
