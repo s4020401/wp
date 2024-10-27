@@ -1,66 +1,78 @@
 <?php
-// Include header and start session
-include('includes/header.inc');
+// Start session
 session_start();
 
-// Redirect to login if the user is not logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+// Include database connection and header
+include('includes/db_connect.inc');
+include('includes/header.inc');
+
+// Handle the delete confirmation
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm-delete'])) {
+    $petid = $_POST['petid'];
+
+    // Prepare and execute delete statement
+    $stmt = $conn->prepare("DELETE FROM pets WHERE petid = ?");
+    $stmt->bind_param("i", $petid);
+
+    if ($stmt->execute()) {
+        $_SESSION['usrmsg'] = "Pet record deleted successfully.";
+    } else {
+        $_SESSION['err'] = "Failed to delete pet record.";
+    }
+
+    // Redirect back to user collection
+    header("Location: user.php");
     exit();
 }
 
-// Include database connection
-include('includes/db_connect.inc');
-
-// Handle deletion confirmation
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_delete']) && isset($_POST['petid'])) {
-    $petid = $_POST['petid'];
-    $username = $_SESSION['username'];
-
-    // Delete pet from database
-    $stmt = $conn->prepare("DELETE FROM pets WHERE petid = ? AND username = ?");
-    $stmt->bind_param('is', $petid, $username);
-
-    if ($stmt->execute()) {
-        echo "<p class='success-message'>Pet deleted successfully!</p>";
-    } else {
-        echo "<p class='error-message'>Error: " . $stmt->error . "</p>";
-    }
-
-    $stmt->close();
+// Check if pet ID is provided in URL
+if (!isset($_GET['petid'])) {
+    echo "<p class='error'>No pet ID provided. <a href='gallery.php'>Go back to gallery</a>.</p>";
+    exit();
 }
 
-// Get pet details for confirmation
-if (isset($_GET['petid'])) {
-    $petid = $_GET['petid'];
-    $username = $_SESSION['username'];
+// Fetch pet details from the database
+$petid = $_GET['petid'];
+$stmt = $conn->prepare("SELECT * FROM pets WHERE petid = ?");
+$stmt->bind_param("i", $petid);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    // Fetch pet details from database
-    $stmt = $conn->prepare("SELECT * FROM pets WHERE petid = ? AND username = ?");
-    $stmt->bind_param('is', $petid, $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $pet = $result->fetch_assoc();
-    } else {
-        echo "<p class='error-message'>Pet not found or access denied.</p>";
-        exit();
-    }
-
-    $stmt->close();
+if ($result->num_rows == 0) {
+    echo "<p class='error'>Pet not found. <a href='gallery.php'>Go back to gallery</a>.</p>";
+    exit();
 }
+
+$pet = $result->fetch_assoc();
 ?>
 
 <main>
-    <h1>Delete Pet</h1>
-    <p>Are you sure you want to delete the pet "<?php echo htmlspecialchars($pet['petname']); ?>"?</p>
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 
-    <form action="delete.php" method="POST">
-        <input type="hidden" name="petid" value="<?php echo $pet['petid']; ?>">
-        <button type="submit" name="confirm_delete" value="yes">Yes, delete it</button>
-        <a href="user.php">Cancel</a>
-    </form>
+    <div class="pet-detail-container text-center">
+        <h1>Are you sure you want to delete this record?</h1>
+
+        <!-- Pet Image -->
+        <div class="pet-image-wrapper my-4">
+            <img class="pet-image img-fluid" src="images/<?php echo htmlspecialchars($pet['image']); ?>" alt="<?php echo htmlspecialchars($pet['caption']); ?>">
+        </div>
+
+        <!-- Pet Name -->
+        <h2><?php echo htmlspecialchars($pet['petname']); ?></h2>
+
+        <!-- Confirm and Cancel Buttons -->
+        <div class="confirm-buttons mt-4">
+            <form action="delete.php" method="post">
+                <input type="hidden" name="petid" value="<?php echo $petid; ?>">
+                <button type="submit" name="confirm-delete" class="btn btn-danger">Delete</button>
+                <a href="user.php" class="btn btn-primary">Cancel</a>
+            </form>
+        </div>
+    </div>
 </main>
 
-<?php include('includes/footer.inc'); ?>
+<?php
+include('includes/footer.inc');
+$stmt->close();
+$conn->close();
+?>
