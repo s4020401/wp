@@ -1,32 +1,26 @@
+<?php
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Add Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Add Bootstrap 5 JavaScript (added at the bottom of index.php) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pets Victoria</title> 
+    <title>Pets Victoria</title>
     <link rel="stylesheet" href="css/style.css">
-    <script>
-        function handleNavSelection() {
-            var selectElement = document.getElementById('nav-select');
-            var selectedValue = selectElement.value;
-            if (selectedValue) {
-                window.location.href = selectedValue;
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Logo Section -->
             <div class="logo-container">
-                <img class="about-logo-image" alt="company logo" src="images/logo.png">
+                <a href="index.php"><img class="about-logo-image" alt="company logo" src="images/logo.png"></a>
             </div>
 
             <!-- Navigation Menu (from nav.inc) -->
@@ -45,5 +39,6 @@
     </header>
 </body>
 </html>
+
 
 
