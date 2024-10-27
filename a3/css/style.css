@@ -10,6 +10,10 @@ body {
     box-sizing: border-box;
 }
 
+.login-page{
+    height: 200px;
+}
+
 header {
     background-color: #3A8378;
     color: white;
