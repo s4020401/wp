@@ -23,7 +23,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 if (isset($_SESSION['user_id'])) {
     echo '<main>';
     echo '<link rel="stylesheet" href="css/style.css?v=' . time() . '">';
-    
+
     echo '<div class="login-container">';
     echo '<h1>Welcome, ' . $_SESSION['username'] . '!</h1>';
     echo '<p>You are now logged in.</p>';
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <main>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
-    
+
     <div class="login-container">
         <h1>Login</h1>
         <?php if (isset($_SESSION['err'])): ?>
@@ -79,10 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
         <form action="login.php" method="post">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" class="form-control" required>
             
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" class="form-control" required>
             
             <button type="submit" class="styled-button">Login</button>
         </form>
