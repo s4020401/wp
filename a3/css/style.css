@@ -11,11 +11,20 @@ body {
 }
 
 
+
+.login-page{
+    height: 200px;
+}
+
+
+
 header {
     background-color: #3A8378;
     color: white;
-    padding: 1px 0;
-    border-radius: 8px;
+    padding:  0;
+    width: 100vw;
+    border-radius: 0; 
+    margin: 0;
 }
 
 .header-container {
@@ -24,8 +33,11 @@ header {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 15px 20px;
+    background-color: #3A8378;
 }
+
+
 
 .about-logo-image {
     height: 50px;
@@ -35,20 +47,22 @@ header {
 .nav-container {
     margin-right: auto;
     margin-left: 20px;
+    color: white;
+    background-color:#3A8378; 
 }
 
 #nav-select {
     padding: 5px;
     border: none;
     border-radius: 3px;
-    background-color: white;
+    background-color: #f7f2e7;
     color: black;
     cursor: pointer;
 }
 
 #nav-select option {
     background-color: #333;
-    color: white;
+    color: transparent;
 }
 
 .search-container {
@@ -62,12 +76,19 @@ header {
     border-radius: 3px;
 }
 
+
+
+.container{
+    background-color:#3A8378; ;
+    
+}
+
 .search-container button {
     padding: 3px 3px; /* 减少 padding 让按钮变小 */
     margin-left: 5px;
     border: none;
     border-radius: 3px;
-    background-color: transparent;
+    background-color: #3A8378;
     color: white;
     cursor: pointer;
     font-size: 12px; /* 调整字体大小 */
@@ -119,7 +140,7 @@ header {
 
 
 h1 {
-    font-size: 3em;
+    font-size: 5em;
     color: black;
     text-align: center;
     margin-bottom: 20px;
@@ -187,6 +208,7 @@ p1{
 .pet-table-container {
     flex: 1;
     margin-left: 20px;
+    background-color: #3A8378;
 }
 
 .pet-table-container table {
@@ -372,7 +394,7 @@ h4 {
     color: #333;
     line-height: 1.6;
     max-width: 800px;
-    margin: 0 auto;
+    
 }
 
 
@@ -509,12 +531,7 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Hero Section Styling */
-.hero-section {
-    background-color: #f7f2e7;
-    text-align: center;
-    padding: 50px 0;
-}
+
 
 .hero-title {
     font-family: 'Brush Script MT', cursive;
@@ -527,24 +544,21 @@ body, html {
     font-size: 36px;
 }
 
-/* Carousel Styling */
 .carousel-inner img {
     height: 400px;
     object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth transition */
 }
 
-/* Fix for full-width carousel */
-.carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px; /* Consistent height for the carousel */
-}
 
-.carousel-inner {
-    width: 100%; /* Make sure it takes full width */
-}
 
+/* Optional: To ensure a consistent height for all images */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+}
 /* Search Section Styling */
 .search-section {
     text-align: center;
@@ -586,5 +600,248 @@ body, html {
     flex-direction: column;
     justify-content: center;
     padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.register-container {
+    background-color: white;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    font-size: 2em;
+    color: #335c67;
+    margin-bottom: 10px;
+}
+
+.register-container p {
+    font-size: 1.1em;
+    color: #777;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+}
+
+.styled-button {
+    padding: 12px 20px;
+    background-color: #335c67;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: #2a485d;
+}
+
+.success-message {
+    color: green;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.login-link a {
+    color: #335c67;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Login & Register Page */
+.login-container, .register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1, .register-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-container form, .register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label, .register-container label {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.login-container input, .register-container input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.styled-button {
+    padding: 10px;
+    background-color: #335c67;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.styled-button:hover {
+    background-color: #2a485d;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.user-pets-container {
+    padding: 20px;
+}
+
+.user-pets-container h1 {
+    text-align: left;
+    margin-left: 0;
+}
+
+
+.pet-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.pet-image-wrapper {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.pet-image {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.pet-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.pet-info .icon-detail {
+    flex: 1;
+    text-align: center;
+}
+
+.icon-small {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+.pet-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pet-buttons .btn {
+    margin: 0 5px;
+}
+
+.pet-description-container {
+    width: 100%;
 }
 
