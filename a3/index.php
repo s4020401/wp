@@ -41,7 +41,7 @@ include('includes/header.inc');
                             <img src="images/dog3.jpeg" alt="animal" class="d-block w-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/dog2.jpg" alt="animal" class="d-block w-100">
+                            <img src="images/dog2.jpeg" alt="animal" class="d-block w-100">
                         </div>
                         <div class="carousel-item">
                             <img src="images/dog1.jpeg" alt="animal" class="d-block w-100">
