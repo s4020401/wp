@@ -4,26 +4,17 @@ session_start();
 
 <?php 
 include('includes/db_connect.inc'); // 包含数据库连接
-include('includes/header.inc'); // 包含 header
-
-// 确保数据库连接成功
-if ($conn === false || $conn->connect_error) {
-    die("<p class='error-message'>数据库连接失败: " . $conn->connect_error . "</p>");
-}
+include('includes/header.inc'); // 包含header
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // 使用 SHA1() 加密密码
+    // 使用 SHA() 加密密码
     $hashedPassword = sha1($password);
 
-    // 插入用户数据到数据库
+    // 插入用户数据到数据库（去掉了 `email` 字段）
     $stmt = $conn->prepare("INSERT INTO users (username, password, reg_date) VALUES (?, ?, NOW())");
-    if ($stmt === false) {
-        die("<p class='error-message'>SQL 准备语句错误: " . $conn->error . "</p>");
-    }
-
     $stmt->bind_param('ss', $username, $hashedPassword);
 
     if ($stmt->execute()) {
