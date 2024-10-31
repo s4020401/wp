@@ -61,7 +61,7 @@ $result = $stmt->get_result();
                     <!-- Pet Details Section -->
                     <div class="col-md-8">
                         <h1><?php echo htmlspecialchars($pet['petname']); ?></h1>
-                        <h1 class="pet-description"><?php echo htmlspecialchars($pet['description']); ?></>
+                        <p class="pet-description"><?php echo htmlspecialchars($pet['description']); ?></p>
                     </div>
                 </div>
             <?php endwhile; ?>
