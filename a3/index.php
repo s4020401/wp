@@ -1,20 +1,36 @@
-<?php 
-session_start();
-?>
-
 <?php
-// Include database connection and header
-include('includes/db_connect.inc');
-include('includes/header.inc');
-?>
+session_start();
+include('includes/db_connect.inc'); 
+include('includes/header.inc');// 包含数据库连接文件
 
+// 默认图片数组
+$defaultImages = [
+    ["image" => "dog3.jpeg", "caption" => "Default Image 1"],
+    ["image" => "dog2.jpeg", "caption" => "Default Image 2"],
+    ["image" => "dog1.jpeg", "caption" => "Default Image 3"],
+    ["image" => "dog4.jpeg", "caption" => "Default Image 4"]
+];
+
+// 从数据库中获取 gallery.php 中的图片
+$query = "SELECT image, petname AS caption FROM pets";
+$result = $conn->query($query);
+
+$additionalImages = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $additionalImages[] = $row;
+    }
+}
+
+// 将默认图片和数据库中的图片合并
+$images = array_merge($defaultImages, $additionalImages);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pets Victoria</title>
-    <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 </head>
@@ -24,39 +40,33 @@ include('includes/header.inc');
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="row">
-            <!-- Image Carousel (using Bootstrap) -->
             <div class="col-md-6">
-                <div id="demo" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="3000">
+                <div id="galleryCarousel" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="3000">
                     <!-- Indicators -->
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                        <?php foreach ($images as $index => $image): ?>
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="<?php echo $index; ?>" <?php echo $index === 0 ? 'class="active" aria-current="true"' : ''; ?>></button>
+                        <?php endforeach; ?>
                     </div>
 
-                    <!-- The slideshow -->
+                    <!-- 幻灯片内容 -->
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/dog3.jpeg" alt="animal" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/dog2.jpeg" alt="animal" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/dog1.jpeg" alt="animal" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/dog4.jpeg" alt="animal" class="d-block w-100">
-                        </div>
+                        <?php foreach ($images as $index => $image): ?>
+                            <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                                <img src="images/<?php echo $image['image']; ?>" alt="<?php echo htmlspecialchars($image['caption']); ?>" class="d-block w-100" style="height: 450px;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p><?php echo htmlspecialchars($image['caption']); ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -89,9 +99,11 @@ include('includes/header.inc');
 
         <!-- Introduction Section -->
         <div class="row mt-5">
-            <div class="col-md-8 offset-md-2 text-center">
+            <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 text-left">
                 <h3>Discover Pets Victoria</h3>
-                <p>Pets Victoria is a dedicated pet adoption organization based in Victoria, Australia, focused on providing a safe and loving environment for pets in need...</p>
+                <p>
+                PETS VICTORIA IS A DEDICATED PET ADOPTION ORGANIZATION BASED IN VICTORIA, AUSTRALIA, FOCUSED ON PROVIDING A SAFE AND LOVING ENVIRONMENT FOR PETS IN NEED. WITH A COMPASSIONATE APPROACH, PETS VICTORIA WORKS TIRELESSLY TO RESCUE, REHABILITATE, AND REHOME DOGS, CATS, AND OTHER ANIMALS. THEIR MISSION IS TO CONNECT THEIR DESERVING PETS WITH CARING INDIVIDUALS AND FAMILIES, CREATING LIFELONG BONDS. THE ORGANIZATION OFFERS A RANGE OF SERVICES, INCLUDING ADOPTION COUNSELING, PET EDUCATION, AND COMMUNITY SUPPORT PROGRAMS, ALL AIMED AT PROMOTING RESPONSIBLE PET OWNERSHIP AND REDUCING THE NUMBER OF HOMELESS ANIMALS.
+                </p>
             </div>
         </div>
     </div>
@@ -104,8 +116,6 @@ include('includes/footer.inc');
 
 <!-- Include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js folder/main.js"></script>
-
 </body>
 </html>
 
