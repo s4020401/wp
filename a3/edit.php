@@ -1,7 +1,6 @@
 <?php
-// Include header and start session
-include('includes/header.inc');
 session_start();
+include('includes/header.inc');
 
 // Redirect to login if the user is not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -23,23 +22,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['petid'])) {
     $imageCaption = $_POST['image-caption'];
     $username = $_SESSION['username'];
 
-    // Handle image upload if a new image is uploaded
+    // Set the default image name to the existing image
     $image_name = $_POST['existing-image'];
-    if (!empty($_FILES['image']['name'])) {
+
+    // Check if a new image file is uploaded
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $target_dir = "images/";
-        $image_name = basename($_FILES["image"]["name"]);
-        $target_file = $target_dir . $image_name;
-        if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            echo "<p class='error-message'>Error uploading image.</p>";
+        $new_image_name = basename($_FILES["image"]["name"]); // New image file name
+        $target_file = $target_dir . $new_image_name;
+
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $image_name = $new_image_name; // Set image_name to new file name
+
+            // Delete old image file if it exists
+            if (!empty($_POST['existing-image']) && file_exists($target_dir . $_POST['existing-image'])) {
+                unlink($target_dir . $_POST['existing-image']);
+            }
+        } else {
+            echo "<p class='error-message'>Error uploading new image. Using existing image.</p>";
         }
     }
 
-    // Update pet details in database
+    // Update pet details in the database
     $stmt = $conn->prepare("UPDATE pets SET petname = ?, description = ?, type = ?, age = ?, location = ?, image = ?, caption = ? WHERE petid = ? AND username = ?");
     $stmt->bind_param('sssisisss', $petname, $description, $type, $age, $location, $image_name, $imageCaption, $petid, $username);
 
     if ($stmt->execute()) {
-        // Redirect to user page to view updated pet details
+        // Success: redirect to user page
         $_SESSION['msg'] = "Pet updated successfully!";
         header("Location: user.php");
         exit();
@@ -105,6 +115,14 @@ if (isset($_GET['petid'])) {
                 <label for="image">Select an Image:</label>
                 <input type="file" id="image" name="image" accept="image/*">
                 <small>Max image size: 500px</small>
+                <div class="current-image">
+                    <p>Current Image:</p>
+                    <?php if (!empty($pet['image'])): ?>
+                        <img src="images/<?php echo htmlspecialchars($pet['image']); ?>" alt="Current Image" style="max-width: 200px; max-height: 200px;">
+                    <?php else: ?>
+                        <p>No image available.</p>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <div class="form-group">
