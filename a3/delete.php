@@ -1,4 +1,4 @@
-<?php
+<?php 
 // Start session
 session_start();
 
@@ -16,34 +16,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm-delete'])) {
 
     if ($stmt->execute()) {
         $_SESSION['usrmsg'] = "Pet record deleted successfully.";
+        // Redirect to the same page with a success message
+        header("Location: delete.php?status=success");
+        exit();
     } else {
         $_SESSION['err'] = "Failed to delete pet record.";
+        header("Location: delete.php?status=failed");
+        exit();
     }
-
-    // Redirect back to user collection
-    header("Location: user.php");
-    exit();
 }
 
-// Check if pet ID is provided in URL
+// Check if pet ID is provided in URL and retrieve pet details
 if (!isset($_GET['petid'])) {
     echo "<p class='error'>No pet ID provided. <a href='gallery.php'>Go back to gallery</a>.</p>";
-    exit();
+    return; // Replace exit() with return to continue loading the page layout
 }
 
-// Fetch pet details from the database
 $petid = $_GET['petid'];
 $stmt = $conn->prepare("SELECT * FROM pets WHERE petid = ?");
 $stmt->bind_param("i", $petid);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// 如果没有找到宠物记录，显示错误提示信息
 if ($result->num_rows == 0) {
     echo "<p class='error'>Pet not found. <a href='gallery.php'>Go back to gallery</a>.</p>";
-    exit();
+    return; // Replace exit() with return to continue loading the page layout
 }
 
 $pet = $result->fetch_assoc();
+
+// Display success message if delete was successful
+if (isset($_GET['status']) && $_GET['status'] == 'success') {
+    echo "<main class='text-center'>
+            <h1>Bye bye!</h1>
+            <div class='message-success'>Record deleted</div>
+            <p>We hate to see a pet record go, but we are sure you had a good reason for deleting it.</p>
+            <p>Maybe you can fill the gap by adding a new and exciting animal?</p>
+            <a href='add.php' class='fill-gap-button'>Add a new pet</a>
+          </main>";
+    include('includes/footer.inc');
+    return;
+}
 ?>
 
 <main>
