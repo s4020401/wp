@@ -30,15 +30,25 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <!-- Search Section -->
             <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>
-                    <img src="images/search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Search">
-                </button>
+                <form action="search.php" method="get" style="display: flex;">
+                    <input type="text" name="keyword" placeholder="Search..." class="form-control" required>
+                    <button type="submit" class="btn btn-outline-secondary">
+                        <img src="images/search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt="Search">
+                    </button>
+                </form>
             </div>
         </div>
+        
+        <!-- Display login success message if it exists -->
+        <?php if (isset($_SESSION['usrmsg'])): ?>
+            <div class="alert alert-success alert-dismissible fade show text-center" 
+                 style="background-color: #e0f7fa; color: #00695c; border: none; border-radius: 0; margin: 0; padding: 10px;" 
+                 role="alert">
+                <?php echo $_SESSION['usrmsg']; unset($_SESSION['usrmsg']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
     </header>
 </body>
 </html>
-
-
 
