@@ -3,7 +3,7 @@
 ?>
 <footer class="site-footer">
     <div class="footer-container">
-        <p>&copy; Copyright 2024. All Rights Reserved | Designed for Pets Victoria</p>
+        <p>&copy; Copyright 2024. zekun liu s4020401 All Rights Reserved | Designed for Pets Victoria</p>
 
         <?php if (isset($_SESSION['username'])): ?>
             <p class="user-link">
