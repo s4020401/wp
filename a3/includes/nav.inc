@@ -14,10 +14,14 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="pets.php">Pets</a></li>
                 <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="add.php">Add more</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                
+                <!-- Only show "Add more" if user is logged in -->
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li class="nav-item"><a class="nav-link" href="add.php">Add more</a></li>
+                <?php endif; ?>
 
                 <!-- Display Login or Logout based on session -->
                 <?php if (isset($_SESSION['user_id'])): ?>
@@ -30,15 +34,3 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
 </nav>
 
-<?php
-// Handle logout action
-if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-    // Unset all session variables
-    session_unset();
-    // Destroy the session
-    session_destroy();
-    // Redirect to the home page
-    header("Location: index.php");
-    exit();
-}
-?>
