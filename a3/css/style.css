@@ -10,6 +10,9 @@ body {
     box-sizing: border-box;
 }
 
+main.page {
+    min-height: 900px; /* 设置最低高度，确保页面长度足够 */
+}
 
 
 .login-page{
@@ -38,6 +41,9 @@ body {
     background-color:#fcf9ec; /* Choose the desired color */
     height: 600px;
 }
+
+
+
 
 header {
     background-color: #3A8378;
@@ -260,6 +266,7 @@ p1{
 }
 
 /* Gallery Styling */
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -340,6 +347,8 @@ p1{
 main {
     flex-grow: 1;
 }
+
+
 
 html, body {
     height: 100%;
