@@ -19,23 +19,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     exit();
 }
 
-// If user is already logged in, show logout option and redirect option
-if (isset($_SESSION['user_id'])) {
-    echo '<main>';
-    echo '<link rel="stylesheet" href="css/style.css?v=' . time() . '">';
-    
-    echo '<div class="login-container">';
-    echo '<h1>Welcome, ' . $_SESSION['username'] . '!</h1>';
-    echo '<p>You are now logged in.</p>';
-    echo '<p><a href="login.php?action=logout" class="styled-button">Logout</a></p>';
-    echo '<p><a href="user.php" class="styled-button">Go to your User Page</a></p>';
-    echo '</div>';
-    echo '</main>';
-
-    include('includes/footer.inc');
-    exit();
-}
-
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -53,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Login successful, set session
         $_SESSION['user_id'] = $user['userID'];
         $_SESSION['username'] = $user['username'];
-        $_SESSION['usrmsg'] = "Login successful";
+        $_SESSION['usrmsg'] = "Login successful! Welcome, " . $_SESSION['username'] . ".";
 
-        header("Location: login.php");
+        header("Location: index.php");
         exit();
     } else {
         // Login failed, set error message
